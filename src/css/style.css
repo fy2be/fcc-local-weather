@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #9dcebd;  
+    font-family: 'Gloria Hallelujah', cursive;    
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    box-sizing: border-box;
+  }
+
+.frame {
+    /* border: black 1px solid; */
+    min-width: 40vw;
+}
+
+.top-part {
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-part .city {
+    font-size: 48px;
+    flex: 0.9;
+    /* border: blue 1px solid; */
+}
+
+.scale-picker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+    flex: 0.1;
+    /* border: yellow 1px solid; */
+}
+
+.scale-picker:hover {
+    color: black;
+}
+
+.mid-part {
+    display: flex;
+    justify-content: space-between;
+    /* border: green 1px solid; */
+}
+
+.mid-part .left-icon {
+    font-size: 60px;
+    align-items: center;
+    justify-content: center;
+    flex: 0.2;
+}
+
+.mid-part .now {
+    display: flex;
+    justify-content: center;
+    font-size: 32px;
+    /* border: brown 1px solid; */
+}
+
+.mid-part .min-max {
+    font-size: 18px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.mid-part .temperature,
+.mid-part .barometer-humidity,
+.mid-part .rain-wind {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 0.3;
+}
+
+.mid-part .barometer-humidity,
+.mid-part .rain-wind {
+    align-items: flex-end;
+}
+
+.btn-part {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-part .next-day {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.btn-part .weather-icon {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.btn-part .day-night {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-part .day-night .slash {
+    color: black;
+}
+
+.btn-part .day-night .min,
+.btn-part .day-night .max {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
