@@ -101,8 +101,13 @@ body {
     font-size: 24px;
 }
 
+.btn-part .date {
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+}
+
 .btn-part .day-night {
-    margin-top: 15px;
     display: flex;
     justify-content: space-around;
 }

@@ -6,6 +6,12 @@ import NextDay from './NextDay';
 
 class Frame extends React.Component {
     render() {
+        let nextDays = [];
+
+        for (let j = 1; j < this.props.weather.length; j++) {
+            nextDays.push(<NextDay key={j} isCelsius={this.props.isCelsius} weather={this.props.weather[j]} />);
+        }
+
         return (
             <div className='frame'>
                 <div className='top-part'>
@@ -24,11 +30,7 @@ class Frame extends React.Component {
                 </div>
 
                 <div className='btn-part'>
-                    {/* <NextDay isCelsius={this.props.isCelsius} weather={this.props.today} /> */}
-                    {/* <NextDay isCelsius={this.props.isCelsius} weather={this.props.today} /> */}
-                    {/* <NextDay isCelsius={this.props.isCelsius} weather={this.props.today} /> */}
-                    {/* <NextDay isCelsius={this.props.isCelsius} weather={this.props.today} /> */}
-                    {/* <NextDay isCelsius={this.props.isCelsius} weather={this.props.today} /> */}
+                    {nextDays}
                 </div>
             </div>
         );
