@@ -13,3 +13,12 @@ export function isEmpty(obj) {
     }
     return true;
 }
+
+export function formatDate(dt_txt) {
+    const parts = dt_txt.split(' ')[0].split('-');
+    const day = parts[2];
+    const month = parts[1];
+    const year = parts[0];
+
+    return `${day}/${month}/${year}`;
+}
