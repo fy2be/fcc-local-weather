@@ -5,7 +5,7 @@ class NextDay extends React.Component {
         return (
             <div className='next-day'>
                 <div className='weather-icon'>
-                    <i class='wi wi-day-light-wind'></i>
+                    <i className='wi wi-day-light-wind'></i>
                 </div>
 
                 <div className='day-night'>
