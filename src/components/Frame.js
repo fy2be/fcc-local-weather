@@ -9,7 +9,7 @@ class Frame extends React.Component {
         return (
             <div className='frame'>
                 <div className='top-part'>
-                    <City name='Wroclaw' />
+                    <City data={this.props.city} />
                     <ScalePicker
                         isCelsius={this.props.isCelsius}
                         handleChangeScale={this.props.handleChangeScale}
