@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import Frame from './Frame';
-import { fahrenheitToCelsius, celsiusToFahrenheit } from '../helpers';
 import config from '../credentials';
 
 class App extends React.Component {
