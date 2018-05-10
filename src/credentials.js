@@ -1,3 +1,3 @@
-export default config = {
-    'weather-api': '',
+export default {
+    'API_KEY': '',
 }
