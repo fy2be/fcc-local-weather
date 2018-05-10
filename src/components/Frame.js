@@ -19,16 +19,16 @@ class Frame extends React.Component {
                 <div className='mid-part'>
                     <Today
                         isCelsius={this.props.isCelsius}
-                        weather={this.props.today}
+                        weather={this.props.weather[0]}
                     />
                 </div>
 
                 <div className='btn-part'>
-                    <NextDay isCelsius={this.props.isCelsius} weather={this.props.today} />
-                    <NextDay isCelsius={this.props.isCelsius} weather={this.props.today} />
-                    <NextDay isCelsius={this.props.isCelsius} weather={this.props.today} />
-                    <NextDay isCelsius={this.props.isCelsius} weather={this.props.today} />
-                    <NextDay isCelsius={this.props.isCelsius} weather={this.props.today} />
+                    {/* <NextDay isCelsius={this.props.isCelsius} weather={this.props.today} /> */}
+                    {/* <NextDay isCelsius={this.props.isCelsius} weather={this.props.today} /> */}
+                    {/* <NextDay isCelsius={this.props.isCelsius} weather={this.props.today} /> */}
+                    {/* <NextDay isCelsius={this.props.isCelsius} weather={this.props.today} /> */}
+                    {/* <NextDay isCelsius={this.props.isCelsius} weather={this.props.today} /> */}
                 </div>
             </div>
         );

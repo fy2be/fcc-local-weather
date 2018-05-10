@@ -1,14 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 import Frame from './Frame';
-import { fahrenheitToCelsius } from '../helpers';
+import { fahrenheitToCelsius, celsiusToFahrenheit } from '../helpers';
 import config from '../credentials';
 
 class App extends React.Component {
     state = {
         isCelsius: true,
-        city: {},
-        weather: {}
+        weather: []
     };
 
     handleChangeScale = () => {
@@ -16,15 +15,7 @@ class App extends React.Component {
         this.setState({ isCelsius: !isCelsius });
     }
 
-    convert(fdeg) {
-        if (this.state.isCelsius) {
-            return fahrenheitToCelsius(fdeg).toFixed(1);
-        }
-        return fdeg;
-    }
-
     componentDidMount() {
-        // 51.105, 17.036
         const api = 'http://api.openweathermap.org/data/2.5/forecast';
 
         axios.get(api, {
@@ -41,10 +32,7 @@ class App extends React.Component {
                     return !(i % 8);
                 });
 
-                this.setState({
-                    city: city,
-                    weather: weather
-                });
+                this.setState({ city, weather });
             })
             .catch(error => {
                 // hm? :)
@@ -54,21 +42,11 @@ class App extends React.Component {
     }
 
     render() {
-        const nowMock = {
-            now: this.convert(91.4),
-            min: this.convert(42.0),
-            max: this.convert(101.1),
-            pressure: 1017.24,
-            humidity: 100,
-            raindrop: 0,
-            wind: 100
-        };
-
         return <Frame
             isCelsius={this.state.isCelsius}
             handleChangeScale={this.handleChangeScale}
             city={this.state.city}
-            today={nowMock}
+            weather={this.state.weather}
         />;
     }
 }
