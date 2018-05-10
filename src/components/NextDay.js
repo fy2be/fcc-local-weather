@@ -9,9 +9,9 @@ class NextDay extends React.Component {
                 </div>
 
                 <div className='day-night'>
-                    <div className='max'>34 <i className='wi wi-celsius'></i></div>
+                    <div className='max'>{this.props.weather.max} <i className='wi wi-celsius'></i></div>
                     <div className='slash'>/</div>
-                    <div className='min'>12 <i className='wi wi-celsius'></i></div>
+                    <div className='min'>{this.props.weather.min} <i className='wi wi-celsius'></i></div>
                 </div>
             </div>
         );
