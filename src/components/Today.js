@@ -25,7 +25,7 @@ class Today extends React.Component {
 
                 <div className='rain-wind'>
                     <div><i className='wi wi-raindrop'></i> {this.props.weather.raindrop} %</div>
-                    <div><i className='wi wi-strong-wind'></i> {this.props.weather.wind} km/h</div>
+                    <div><i className='wi wi-strong-wind'></i> {this.props.weather.wind} m/s</div>
                 </div>
             </React.Fragment>
         );
