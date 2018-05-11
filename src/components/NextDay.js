@@ -1,5 +1,5 @@
 import React from 'react';
-import { celsiusToFahrenheit, formatDate } from '../helpers';
+import { celsiusToFahrenheit, formatDate, iconToClass } from '../helpers';
 
 class NextDay extends React.Component {
     render() {
@@ -9,6 +9,7 @@ class NextDay extends React.Component {
 
         let { temp_min, temp_max } = this.props.weather.main;
         let scaleClass = 'wi-celsius';
+        const icon = this.props.weather.weather[0].icon;
 
         if (!this.props.isCelsius) {
             temp_min = celsiusToFahrenheit(temp_min);
@@ -19,7 +20,7 @@ class NextDay extends React.Component {
         return (
             <div className='next-day'>
                 <div className='weather-icon'>
-                    <i className='wi wi-day-light-wind'></i>
+                    <i className={`wi ${iconToClass(icon)}`}></i>
                 </div>
 
                 <div className='date'>
