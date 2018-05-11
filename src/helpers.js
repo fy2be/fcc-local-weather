@@ -22,3 +22,28 @@ export function formatDate(dt_txt) {
 
     return `${day}/${month}/${year}`;
 }
+
+export function iconToClass(iconId) {
+    const icons = {
+        '01d': 'wi-day-sunny',
+        '01n': 'wi-night-clear',
+        '02d': 'wi-day-cloudy',
+        '02n': 'wi-night-alt-cloudy',
+        '03d': 'wi-day-cloudy-high',
+        '03n': 'wi-night-alt-cloudy-high',
+        '04d': 'wi-day-cloudy-high',
+        '04n': 'wi-night-alt-cloudy-high',
+        '09d': 'wi-day-rain',
+        '09n': 'wi-night-alt-rain',
+        '10d': 'wi-day-rain',
+        '10n': 'wi-night-alt-rain',
+        '11d': 'wi-day-thunderstorm',
+        '11n': 'wi-night-alt-thunderstorm',
+        '13d': 'wi-day-snow',
+        '13n': 'wi-night-alt-snow',
+        '50d': 'wi-day-fog',
+        '50n': 'wi-night-fog',
+    }
+
+    return icons[iconId];
+}
