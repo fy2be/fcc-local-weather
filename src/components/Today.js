@@ -9,6 +9,7 @@ class Today extends React.Component {
 
         let { temp, temp_min, temp_max } = this.props.weather.main;
         const { pressure, humidity } = this.props.weather.main;
+        const cloudiness = this.props.weather.clouds.all;
         const wind = this.props.weather.wind.speed;
         let scaleClass = 'wi-celsius';
         const icon = this.props.weather.weather[0].icon;
@@ -23,7 +24,8 @@ class Today extends React.Component {
         return (
             <React.Fragment>
                 <div className='left-icon'>
-                    <i className={`wi ${iconToClass(icon)}`}></i>
+                    <div className='icon'><i className={`wi ${iconToClass(icon)}`}></i></div>
+                    <div className='description'>clear sky</div>
                 </div>
 
                 <div className='temperature'>
@@ -40,7 +42,7 @@ class Today extends React.Component {
                 <div className='barometer-humidity'>
                     <div><i className='wi wi-barometer'></i> {pressure} hPa</div>
                     <div><i className='wi wi-humidity'></i> {humidity} %</div>
-                    <div><i className='wi wi-cloud'></i> cloud</div>
+                    <div><i className='wi wi-cloud'></i> {cloudiness} %</div>
                     <div><i className='wi wi-wind-direction'></i> wind direction</div>
                 </div>
 

@@ -50,10 +50,24 @@ body {
 }
 
 .mid-part .left-icon {
-    font-size: 60px;
-    align-items: center;
-    justify-content: center;
     flex: 0.2;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+}
+
+.mid-part .left-icon .icon {
+    font-size: 60px;
+    display: flex;
+    align-items: center;
+    flex: 0.6;
+    /* border: 1px solid blue; */
+}
+
+.mid-part .left-icon .description {
+    font-size: 14px;
+    flex: 0.4;
+    /* border: 1px solid green; */
 }
 
 .mid-part .now {
