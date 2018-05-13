@@ -48,7 +48,7 @@ class Today extends React.Component {
 
                 <div className='details'>
                     <div ><i className='wi wi-strong-wind'></i> {speed} m/s</div>
-                    <div><i className='wi wi-wind-direction'></i> {degToDirection(deg)} ( {deg.toFixed(1)}<i className='wi wi-degrees'></i> )</div>
+                    <div><i className='wi wi-wind-direction'></i> {degToDirection(deg)} ({deg.toFixed(1)}<i className='wi wi-degrees'></i>)</div>
                     <div><i className='wi wi-cloud'></i> <span>{cloudiness} %</span></div>
                 </div>
 
