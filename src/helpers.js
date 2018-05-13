@@ -58,7 +58,7 @@ export function degToDirection(deg) {
 
     let direction;
 
-    if (deg.between(337.5, 22.5)) direction = 'N';
+    if (deg.between(337.5, 360) || deg.between(0, 22.5)) direction = 'N';
     else if (deg.between(22.6, 67.6)) direction = 'NE';
     else if (deg.between(67.7, 112.7)) direction = 'E';
     else if (deg.between(112.8, 157.8)) direction = 'SE';
