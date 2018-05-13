@@ -34,13 +34,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 80px;
+    font-size: 48px;
     flex: 0.1;
-    /* border: yellow 1px solid; */
+    transition: transform .5s;
 }
 
 .scale-picker:hover {
-    color: black;
+    transform: scale(1.3);
+    cursor: pointer;
 }
 
 .mid-part {
