@@ -47,3 +47,25 @@ export function iconToClass(iconId) {
 
     return icons[iconId];
 }
+
+export function degToDirection(deg) {
+    Number.prototype.between = function (a, b) {
+        const min = Math.min(a, b);
+        const max = Math.max(a, b);
+
+        return this >= min && this <= max;
+    };
+
+    let direction;
+
+    if (deg.between(337.5, 22.5)) direction = 'N';
+    else if (deg.between(22.6, 67.6)) direction = 'NE';
+    else if (deg.between(67.7, 112.7)) direction = 'E';
+    else if (deg.between(112.8, 157.8)) direction = 'SE';
+    else if (deg.between(157.9, 202.9)) direction = 'S';
+    else if (deg.between(203, 248)) direction = 'SW';
+    else if (deg.between(248.1, 293.1)) direction = 'W';
+    else direction = 'NW';
+
+    return direction;
+}
