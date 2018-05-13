@@ -27,37 +27,45 @@ class App extends React.Component {
     };
 
     componentDidMount() {
-        const api = 'http://api.openweathermap.org/data/2.5/forecast';
+        navigator.geolocation.getCurrentPosition(position => {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
 
-        axios.get(api, {
-            params: {
-                lat: 51.105,
-                lon: 17.036,
-                units: 'metric',
-                APPID: config.API_KEY
-            }
-        })
-            .then(response => {
-                const city = response.data.city;
-                const weather = response.data.list.filter((v, i) => {
-                    return !(i % 8);
-                });
-                const active = weather.shift();
+            const api = 'http://api.openweathermap.org/data/2.5/forecast';
 
-                this.setState({
-                    city,
-                    weather,
-                    active
-                });
+            axios.get(api, {
+                params: {
+                    lat: latitude,
+                    lon: longitude,
+                    units: 'metric',
+                    APPID: config.API_KEY
+                }
             })
-            .catch(error => {
-                // hm? :)
-                console.log(error);
-            })
+                .then(response => {
+                    const city = response.data.city;
+                    const weather = response.data.list.filter((v, i) => {
+                        return !(i % 8);
+                    });
+                    const active = weather.shift();
+
+                    this.setState({
+                        city,
+                        weather,
+                        active
+                    });
+                })
+                .catch(error => {
+                    // hm? :)
+                    console.log(error);
+                })
+        });
 
     }
 
     render() {
+        if (!this.state.city)
+            return <h2>Loading?</h2>
+
         return <Frame
             isCelsius={this.state.isCelsius}
             handleChangeScale={this.handleChangeScale}
