@@ -126,12 +126,13 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 10px;
+    padding: 15px;
+    transition: transform .5s;
 }
 
 .btn-part .next-day:hover {
-    background-color: rgba(0,0,0,0.10);
-    border: 1px solid black;
+    transform: scale(1.4);
+    cursor: pointer;
 }
 
 .btn-part .weather-icon {
