@@ -64,7 +64,11 @@ class App extends React.Component {
 
     render() {
         if (!this.state.city)
-            return <h2>Loading?</h2>
+            return (
+                <div className='loader'>
+                    <i className='wi wi-day-sunny'></i>
+                </div>
+            );
 
         return <Frame
             isCelsius={this.state.isCelsius}
