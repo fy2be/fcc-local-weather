@@ -6,13 +6,25 @@ import config from '../credentials';
 class App extends React.Component {
     state = {
         isCelsius: true,
-        weather: []
+        weather: [],
     };
 
     handleChangeScale = () => {
         const isCelsius = this.state.isCelsius;
         this.setState({ isCelsius: !isCelsius });
-    }
+    };
+
+    handleChangeActiveDay = (active) => {
+        const weather = this.state.weather.filter(i => i.dt !== active.dt);
+        weather.push(this.state.active);
+
+        weather.sort((a, b) => a.dt - b.dt);
+
+        this.setState({
+            active,
+            weather
+        });
+    };
 
     componentDidMount() {
         const api = 'http://api.openweathermap.org/data/2.5/forecast';
@@ -30,8 +42,13 @@ class App extends React.Component {
                 const weather = response.data.list.filter((v, i) => {
                     return !(i % 8);
                 });
+                const active = weather.shift();
 
-                this.setState({ city, weather });
+                this.setState({
+                    city,
+                    weather,
+                    active
+                });
             })
             .catch(error => {
                 // hm? :)
@@ -46,6 +63,8 @@ class App extends React.Component {
             handleChangeScale={this.handleChangeScale}
             city={this.state.city}
             weather={this.state.weather}
+            handleChangeActiveDay={this.handleChangeActiveDay}
+            active={this.state.active}
         />;
     }
 }

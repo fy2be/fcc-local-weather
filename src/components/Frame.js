@@ -8,8 +8,14 @@ class Frame extends React.Component {
     render() {
         let nextDays = [];
 
-        for (let j = 1; j < this.props.weather.length; j++) {
-            nextDays.push(<NextDay key={j} isCelsius={this.props.isCelsius} weather={this.props.weather[j]} />);
+        for (let j = 0; j < this.props.weather.length; j++) {
+            nextDays.push(
+                <NextDay
+                    key={j}
+                    isCelsius={this.props.isCelsius}
+                    weather={this.props.weather[j]}
+                    handleChangeActiveDay={this.props.handleChangeActiveDay}
+                />);
         }
 
         return (
@@ -25,7 +31,7 @@ class Frame extends React.Component {
                 <div className='mid-part'>
                     <Today
                         isCelsius={this.props.isCelsius}
-                        weather={this.props.weather[0]}
+                        weather={this.props.active}
                     />
                 </div>
 

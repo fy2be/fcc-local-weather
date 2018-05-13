@@ -18,7 +18,7 @@ class NextDay extends React.Component {
         }
 
         return (
-            <div className='next-day'>
+            <div className='next-day' onClick={() => this.props.handleChangeActiveDay(this.props.weather)}>
                 <div className='weather-icon'>
                     <i className={`wi ${iconToClass(icon)}`}></i>
                 </div>
