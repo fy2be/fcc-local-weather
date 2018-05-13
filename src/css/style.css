@@ -44,6 +44,7 @@ body {
 }
 
 .mid-part {
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
     /* border: green 1px solid; */
@@ -59,42 +60,61 @@ body {
 .mid-part .left-icon .icon {
     font-size: 60px;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
+    justify-content: flex-end;
     flex: 0.6;
     /* border: 1px solid blue; */
+}
+
+.mid-part .left-icon .date {
+    font-size: 14px;
+    transform: rotate(-45deg) translate(60px, -101px);
 }
 
 .mid-part .left-icon .description {
     font-size: 14px;
     flex: 0.4;
+    display: flex;
+    justify-content: center;
     /* border: 1px solid green; */
 }
 
-.mid-part .now {
+.mid-part .temperature {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+    /* border: 1px solid green; */
+    flex: 0.3;
+}
+
+.mid-part .temperature .now {
     display: flex;
     justify-content: center;
     font-size: 32px;
     /* border: brown 1px solid; */
 }
 
-.mid-part .min-max {
+.mid-part .temperature .min-max {
     font-size: 18px;
     display: flex;
     justify-content: space-around;
+    /* border: 1px orange solid; */
 }
 
-.mid-part .temperature,
-.mid-part .barometer-humidity,
-.mid-part .rain-wind {
+.mid-part .details {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex: 0.3;
+    align-items: flex-end;
+    flex: 0.2;
+    /* border: 1px solid purple; */
 }
 
-.mid-part .barometer-humidity,
-.mid-part .rain-wind {
-    align-items: flex-end;
+.mid-part .details .reg {
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid red; */
 }
 
 .btn-part {
