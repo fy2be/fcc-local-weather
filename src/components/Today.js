@@ -1,5 +1,5 @@
 import React from 'react';
-import { celsiusToFahrenheit, iconToClass, degToDirection } from '../helpers';
+import { celsiusToFahrenheit, iconToClass, degToDirection, formatDate } from '../helpers';
 
 class Today extends React.Component {
     render() {
@@ -12,7 +12,8 @@ class Today extends React.Component {
         const cloudiness = this.props.weather.clouds.all;
         const { speed, deg } = this.props.weather.wind;
         let scaleClass = 'wi-celsius';
-        const icon = this.props.weather.weather[0].icon;
+        const { icon, description } = this.props.weather.weather[0];
+        const date = formatDate(this.props.weather.dt_txt);
 
         if (!this.props.isCelsius) {
             temp = celsiusToFahrenheit(temp);
@@ -25,8 +26,8 @@ class Today extends React.Component {
             <React.Fragment>
                 <div className='left-icon'>
                     <div className='icon'><i className={`wi ${iconToClass(icon)}`}></i></div>
-                    <div className='description'>clear sky</div>
-                    <div className='date'>17/07/2017</div>
+                    <div className='description'>{description}</div>
+                    <div className='date'>{date}</div>
                 </div>
 
                 <div className='temperature'>
