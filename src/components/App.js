@@ -8,6 +8,7 @@ import { descriptionToBgClass } from '../helpers';
 class App extends React.Component {
     state = {
         isCelsius: true,
+        isReady: false,
         weather: [],
         bgClass: 'bg-sun'
     };
@@ -20,11 +21,9 @@ class App extends React.Component {
     handleChangeActiveDay = (active) => {
         const weather = this.state.weather.filter(i => i.dt !== active.dt);
         weather.push(this.state.active);
-
         weather.sort((a, b) => a.dt - b.dt);
 
         const bgClass = descriptionToBgClass(active.weather[0].main);
-        console.log(`bgClass: ${bgClass}`)
 
         this.setState({
             active,
@@ -68,7 +67,8 @@ class App extends React.Component {
                         city,
                         weather,
                         active,
-                        bgClass
+                        bgClass,
+                        isReady: true
                     });
                 })
                 .catch(error => {
@@ -80,7 +80,7 @@ class App extends React.Component {
     }
 
     render() {
-        if (!this.state.city)
+        if (!this.state.isReady)
             return <Loader />
 
         return <Frame
