@@ -44,7 +44,7 @@ class App extends React.Component {
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
 
-            const api = 'http://api.openweathermap.org/data/2.5/forecast';
+            const api = 'https://api.openweathermap.org/data/2.5/forecast';
 
             axios.get(api, {
                 params: {
