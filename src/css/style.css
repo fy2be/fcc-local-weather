@@ -1,10 +1,12 @@
 body {
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: 0;
     padding: 0;
-    background-color: #9dcebd;  
+    /* background-color: #9dcebd;   */
     font-family: 'Gloria Hallelujah', cursive;    
     color: #fff;
-
+    text-shadow: 1px 1px black;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,11 +14,24 @@ body {
 
     height: 100vh;
     box-sizing: border-box;
-  }
+
+    -webkit-transition: background-image 1s ease;
+    transition: background-image 1s ease;
+}
+
+.bg-sun { background-image: url('/background/sun-1.jpg'); }
+.bg-clear-sky { background-image: url('/background/clear-sky-1.jpg'); }
+.bg-clouds { background-image: url('/background/clouds-1.jpg'); }
+.bg-fog { background-image: url('/background/fog-1.jpg'); }
+.bg-rain { background-image: url('/background/rain-1.jpg'); }
+.bg-snow { background-image: url('/background/snow-1.jpg'); }
+.bg-thunder { background-image: url('/background/thunder-1.jpg'); }
 
 .frame {
-    /* border: black 1px solid; */
     min-width: 40vw;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid black;
+    padding: 12px 32px;
 }
 
 .loader {
@@ -162,10 +177,6 @@ body {
 .btn-part .day-night {
     display: flex;
     justify-content: space-around;
-}
-
-.btn-part .day-night .slash {
-    color: black;
 }
 
 .btn-part .day-night .min,
