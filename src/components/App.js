@@ -1,12 +1,15 @@
 import React from 'react';
 import axios from 'axios';
 import Frame from './Frame';
+import Loader from './Loader';
 import config from '../credentials';
+import { descriptionToBgClass } from '../helpers';
 
 class App extends React.Component {
     state = {
         isCelsius: true,
         weather: [],
+        bgClass: 'bg-sun'
     };
 
     handleChangeScale = () => {
@@ -20,13 +23,24 @@ class App extends React.Component {
 
         weather.sort((a, b) => a.dt - b.dt);
 
+        const bgClass = descriptionToBgClass(active.weather[0].main);
+        console.log(`bgClass: ${bgClass}`)
+
         this.setState({
             active,
-            weather
+            weather,
+            bgClass
         });
     };
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.bgClass !== this.state.bgClass)
+            document.body.classList = [this.state.bgClass];
+    }
+
     componentDidMount() {
+        document.body.classList = [this.state.bgClass];
+
         navigator.geolocation.getCurrentPosition(position => {
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
@@ -48,10 +62,13 @@ class App extends React.Component {
                     });
                     const active = weather.shift();
 
+                    const bgClass = descriptionToBgClass(active.weather[0].main);
+
                     this.setState({
                         city,
                         weather,
-                        active
+                        active,
+                        bgClass
                     });
                 })
                 .catch(error => {
@@ -64,11 +81,7 @@ class App extends React.Component {
 
     render() {
         if (!this.state.city)
-            return (
-                <div className='loader'>
-                    <i className='wi wi-day-sunny'></i>
-                </div>
-            );
+            return <Loader />
 
         return <Frame
             isCelsius={this.state.isCelsius}
