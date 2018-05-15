@@ -6,9 +6,9 @@ const Today = props => {
     const { pressure, humidity } = props.weather.main;
     const cloudiness = props.weather.clouds.all;
     const { speed, deg } = props.weather.wind;
-    let scaleClass = 'wi-celsius';
     const { icon, description } = props.weather.weather[0];
     const date = formatDate(props.weather.dt_txt);
+    let scaleClass = 'wi-celsius';
 
     if (!props.isCelsius) {
         temp = celsiusToFahrenheit(temp);
