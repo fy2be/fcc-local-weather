@@ -43,7 +43,7 @@ export function iconToClass(iconId) {
         '13n': 'wi-night-alt-snow',
         '50d': 'wi-day-fog',
         '50n': 'wi-night-fog',
-    }
+    };
 
     return icons[iconId];
 }
@@ -68,4 +68,17 @@ export function degToDirection(deg) {
     else direction = 'NW';
 
     return direction;
+}
+
+export function descriptionToBgClass(description) {
+    const weather = {
+        'Clear': 'bg-clear-sky',
+        'Clouds': 'bg-clouds',
+        'Rain': 'bg-rain',
+        'Snow': 'bg-snow',
+        'Thunder': 'bg-thunder',
+        'Fog': 'bg-fog'
+    };
+
+    return weather[description];
 }
